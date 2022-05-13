@@ -1,40 +1,39 @@
 import react, { Component } from 'react';
-import api from '../../services/fetchImages';
+import { SearchForm, SubmitButton } from './SearchbarStyled';
+
 class Searchbar extends Component {
   state = {
-    images: '',
+    image: '',
   };
   handleChange = e => {
     this.setState({
-      images: e.target.value.toLowerCase(),
+      image: e.target.value.toLowerCase(),
     });
   };
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSubmit(this.state.images);
+    this.props.onSubmit(this.state.image);
     this.setState({
-      images: '',
+      image: '',
     });
   };
 
   render() {
     return (
       <header className="searchbar">
-        <form className="form" onSubmit={this.handleSubmit}>
-          <button type="submit" className="button">
+        <SearchForm className="form" onSubmit={this.handleSubmit}>
+          <SubmitButton type="submit" className="button">
             <span className="button-label">Search</span>
-          </button>
+          </SubmitButton>
 
           <input
             className="input"
             type="text"
-            autocomplete="off"
-            value={this.state.images}
-            autofocus
+            value={this.state.image}
             placeholder="Search images and photos"
             onChange={this.handleChange}
           />
-        </form>
+        </SearchForm>
       </header>
     );
   }
