@@ -1,7 +1,6 @@
 import { ImageItem } from './ImageGalleryStyled';
 import PropTypes from 'prop-types';
 function ImageGalleryItem({ images, showModal }) {
-  console.log(images);
   return (
     <ImageItem className="gallery-item">
       <img
