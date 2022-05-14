@@ -28,7 +28,6 @@ class ImageGallery extends Component {
       try {
         const images = await fetchImages(this.props.image).then(images => {
           if (images.length === 0) {
-            this.setState({ status: 'idle' });
             toast.error('Введите корректный запрос');
           }
           this.setState({ status: 'resolved' });
@@ -68,7 +67,7 @@ class ImageGallery extends Component {
     const { images, showModal, imageModal, status, error } = this.state;
 
     if (status === 'idle') {
-      return <div>Введите запрос</div>;
+      return <div></div>;
     }
     if (status === 'pending') {
       return <TailSpin height={80} width={80} />;
