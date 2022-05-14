@@ -9,4 +9,4 @@ const Container = styled.div`
   width: 1440px;
 `;
 
-export { Container };
+export default Container;

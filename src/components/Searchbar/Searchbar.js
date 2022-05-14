@@ -1,5 +1,6 @@
-import react, { Component } from 'react';
+import { Component } from 'react';
 import { SearchForm, SubmitButton, InputForm } from './SearchbarStyled';
+import PropTypes from 'prop-types';
 
 class Searchbar extends Component {
   state = {
@@ -11,14 +12,16 @@ class Searchbar extends Component {
     });
   };
   handleSubmit = e => {
+    const { onSubmit } = this.props;
     e.preventDefault();
-    this.props.onSubmit(this.state.image);
+    onSubmit(this.state.image);
     this.setState({
       image: '',
     });
   };
 
   render() {
+    const { image } = this.state;
     return (
       <SearchForm className="form" onSubmit={this.handleSubmit}>
         <SubmitButton type="submit" className="button">
@@ -28,7 +31,7 @@ class Searchbar extends Component {
         <InputForm
           className="input"
           type="text"
-          value={this.state.image}
+          value={image}
           placeholder="Search images and photos"
           onChange={this.handleChange}
         />
@@ -38,3 +41,7 @@ class Searchbar extends Component {
 }
 
 export default Searchbar;
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

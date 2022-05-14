@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Searchbar from './Searchbar';
-import { ImageGallery } from './ImageGallery/ImageGallery';
-import { Container } from './Container/Container';
+import ImageGallery from './ImageGallery';
+import Container from './Container';
 import { GlobalStyled } from './GlobalStyle/GlobalStyled';
 import { ToastContainer, toast } from 'react-toastify';
 

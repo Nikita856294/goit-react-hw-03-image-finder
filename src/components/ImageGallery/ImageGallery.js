@@ -1,12 +1,14 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { ImageList } from './ImageGalleryStyled';
-import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
+import ImageGalleryItem from '../ImageGalleryItem';
 import { fetchImages } from '../../services/fetchImages';
-import { LoadMore } from '../LoadMore/LoadMore';
+import LoadMore from '../LoadMore';
 import { TailSpin } from 'react-loader-spinner';
 import { toast } from 'react-toastify';
 import Modal from '../Modal/Modal';
 import 'react-toastify/dist/ReactToastify.css';
+
 class ImageGallery extends Component {
   state = {
     images: [],
@@ -98,4 +100,8 @@ class ImageGallery extends Component {
     }
   }
 }
-export { ImageGallery };
+export default ImageGallery;
+
+ImageGallery.propTypes = {
+  image: PropTypes.string.isRequired,
+};
