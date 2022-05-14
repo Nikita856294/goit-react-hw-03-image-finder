@@ -3,15 +3,11 @@ import styled from 'styled-components';
 const ImageList = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  margin: -15px;
+  margin-right: -10px;
+  margin-top: -10px;
   list-style: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
 `;
-const ButtonOpenModal = styled.button`
-  display: block;
-  padding: 15px;
-  border: none;
-  ouline: none;
-  background-color: blue;
-  border-radius: 4px;
-`;
-export { ImageList, ButtonOpenModal };
+
+export { ImageList };

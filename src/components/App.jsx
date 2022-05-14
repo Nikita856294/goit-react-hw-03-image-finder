@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Searchbar from './Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
-
+import { Container } from './Container/Container';
 import { GlobalStyled } from './GlobalStyle/GlobalStyled';
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -25,18 +25,21 @@ export class App extends Component {
     return (
       <div>
         <GlobalStyled />
-        <ToastContainer
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
-        <Searchbar onSubmit={this.handleSearchFormSubmit} />
-        <ImageGallery image={image} />
+        <Container>
+          <ToastContainer
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+
+          <Searchbar onSubmit={this.handleSearchFormSubmit} />
+          <ImageGallery image={image} />
+        </Container>
       </div>
     );
   }

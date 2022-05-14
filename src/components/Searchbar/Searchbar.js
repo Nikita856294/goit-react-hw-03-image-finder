@@ -1,5 +1,5 @@
 import react, { Component } from 'react';
-import { SearchForm, SubmitButton } from './SearchbarStyled';
+import { SearchForm, SubmitButton, InputForm } from './SearchbarStyled';
 
 class Searchbar extends Component {
   state = {
@@ -20,21 +20,19 @@ class Searchbar extends Component {
 
   render() {
     return (
-      <header className="searchbar">
-        <SearchForm className="form" onSubmit={this.handleSubmit}>
-          <SubmitButton type="submit" className="button">
-            <span className="button-label">Search</span>
-          </SubmitButton>
+      <SearchForm className="form" onSubmit={this.handleSubmit}>
+        <SubmitButton type="submit" className="button">
+          <span className="button-label">Search</span>
+        </SubmitButton>
 
-          <input
-            className="input"
-            type="text"
-            value={this.state.image}
-            placeholder="Search images and photos"
-            onChange={this.handleChange}
-          />
-        </SearchForm>
-      </header>
+        <InputForm
+          className="input"
+          type="text"
+          value={this.state.image}
+          placeholder="Search images and photos"
+          onChange={this.handleChange}
+        />
+      </SearchForm>
     );
   }
 }

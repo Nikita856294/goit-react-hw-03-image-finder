@@ -1,10 +1,11 @@
 import react from 'react';
+import { LoadButton } from './LoadMoreStyled';
 
 function LoadMore({ onClick }) {
   return (
-    <button type="button" name="load" onClick={onClick}>
+    <LoadButton type="button" name="load" onClick={onClick}>
       Load more
-    </button>
+    </LoadButton>
   );
 }
 

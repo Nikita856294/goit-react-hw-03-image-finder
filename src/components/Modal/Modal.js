@@ -12,15 +12,23 @@ class Modal extends Component {
     window.removeEventListener('keydown', this.handleKeyDown);
   }
   handleKeyDown = e => {
+    const { toggleModal } = this.props;
     if (e.key === 'Escape') {
-      this.props.toggleModal();
+      toggleModal();
+    }
+  };
+  handleBackDropClick = e => {
+    const { toggleModal } = this.props;
+    if (e.currentTarget === e.target) {
+      toggleModal();
     }
   };
 
   render() {
+    const { children } = this.props;
     return createPortal(
-      <OverlayModal className="overlay">
-        <ModalWindow className="modal">{this.props.children}</ModalWindow>
+      <OverlayModal className="overlay" onClick={this.handleBackDropClick}>
+        <ModalWindow className="modal">{children}</ModalWindow>
       </OverlayModal>,
       modalRoot
     );

@@ -18,7 +18,9 @@ class ImageGallery extends Component {
     imageModal: null,
   };
   async componentDidUpdate(prevProps, prevState) {
-    if (prevProps.image !== this.props.image) {
+    const prevImage = prevProps.image;
+    const nextImage = this.props.image;
+    if (prevImage !== nextImage) {
       this.setState({ status: 'pending' });
 
       try {
@@ -72,9 +74,7 @@ class ImageGallery extends Component {
     if (status === 'rejected') {
       return <p>Whoops, something went wrong: {error.message}</p>;
     }
-    if (status === 'resolved' && images.length > 0) {
-      <LoadMore onClick={this.handleClick} />;
-    }
+
     if (status === 'resolved') {
       return (
         <div>
@@ -87,7 +87,7 @@ class ImageGallery extends Component {
               />
             ))}
           </ImageList>
-
+          {images.length > 0 && <LoadMore onClick={this.handleClick} />}
           {showModal && (
             <Modal toggleModal={this.toggleModal}>
               <img src={imageModal.largeImageURL} alt={imageModal.tags} />

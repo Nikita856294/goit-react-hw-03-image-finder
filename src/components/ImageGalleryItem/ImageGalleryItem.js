@@ -8,8 +8,8 @@ function ImageGalleryItem({ images, showModal }) {
         src={images.webformatURL}
         alt={images.tag}
         onClick={() => showModal(images.largeImageURL, images.tags)}
-        width="400"
-        height="200"
+        width="100"
+        height="100"
       />
     </ImageItem>
   );
