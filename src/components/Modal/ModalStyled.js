@@ -19,7 +19,7 @@ const ModalWindow = styled.div`
   justify-content: center;
   align-content: center;
   height: 300px;
-  max-width: 400px;
+  max-width: 500px;
   width: 100%;
   padding: 15px;
   border-radius: 3px;

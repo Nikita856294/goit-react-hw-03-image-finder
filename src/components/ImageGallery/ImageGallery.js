@@ -91,7 +91,12 @@ class ImageGallery extends Component {
           {images.length > 0 && <LoadMore onClick={this.handleClick} />}
           {showModal && (
             <Modal toggleModal={this.toggleModal}>
-              <img src={imageModal.largeImageURL} alt={imageModal.tags} />
+              <img
+                src={imageModal.largeImageURL}
+                alt={imageModal.tags}
+                width="100"
+                height="100"
+              />
             </Modal>
           )}
         </div>
